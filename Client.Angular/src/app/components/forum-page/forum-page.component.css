@@ -1,0 +1,17 @@
+.forum-page {
+  display: flex;
+  justify-content: center;
+}
+
+.forum-page-container {
+  background: transparent;
+  padding: 15px;
+  width: 100%;
+}
+
+.register {
+  background: url(../../../assets/img/beach.jpg);
+  background-size: cover;
+  background-position: center;
+}
+

@@ -1,0 +1,35 @@
+<div class="post box-shadow">
+  <div class="user-profile">
+    <div class="user-profile-picture-container">
+      <img class="user-profile-picture" src="{{ post.author?.avatarUrl }}" />
+    </div>
+  </div>
+  <div class="post-body">
+    <div class="post-detail">
+      <span class="user-name mr-1">
+        <a [routerLink]="['/user', post.author?.id]" routerLinkActive="router-link-active">{{ post.author?.displayName }}</a>
+      </span>
+      <span>
+        {{ post.createdOn | date }}
+        <span *ngIf="post.edited"> - Last Edited: {{ post.lastEditDate | date }}</span>
+      </span>
+      <span class="menu">
+        <div class="dropdown" dropdown>
+          <a class="user-options" dropdownToggle>
+            <i class="material-icons">more_vert</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+            <a class="dropdown-item" (click)="editPost()">Edit</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Delete</a>
+          </div>
+        </div>
+      </span>
+    </div>
+
+    <div id="post-view-{{ post.id }}"></div>
+    <input type="button" class="btn btn-success" value="Save" (click)="savePost()" *ngIf="isEdit">
+
+    <!-- <quill-view [content]="post.content" formats="[object, text]"></quill-view> -->
+  </div>
+</div>

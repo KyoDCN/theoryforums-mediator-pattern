@@ -1,0 +1,106 @@
+<div class="register-container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-shadow" style="color: white; margin-bottom: 100px;">Welcome, Friend!</h1>
+        </div>
+        <div class="col">
+            <div class="register-form">
+                <form [formGroup]="registerForm" class="form-signin" (submit)="register()">
+                    <!-- <img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+                    <h1 class="h3 mb-3 font-weight-bold" style="text-align: center;">Sign up!</h1>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <input id="register-username" class="form-control" (keydown)="clearErrors('username')"
+                               [ngClass]="{'is-invalid': (rf.username.errors || errors?.duplicateUsername) 
+                            && (rf.username.dirty || rf.username.touched) }" formControlName="username" type="text" placeholder="Username" />
+                        <small class="form-text text-muted">Your username is for login purposes only.</small>
+                        <label class="invalid-feedback" *ngIf="!!rf.username.errors?.required">
+                            Username is required.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.username.errors?.pattern">
+                            Letters, numbers, and underscores only.<br>Cannot end with underscore.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.username.errors?.minlength">
+                            Must be at least 6 characters long.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="errors?.duplicateUsername">
+                            {{errors?.duplicateUsername}}
+                        </label>
+                    </div>
+
+                    <!-- Display Name -->
+                    <div class="form-group">
+                        <input class="form-control mt-2"
+                               [ngClass]="{'is-invalid': (rf.displayName.errors || registerForm.errors?.matchUsername) && (rf.displayName.dirty || rf.displayName.touched)}"
+                               formControlName="displayName" type="text" placeholder="Display Name" />
+                        <small class="form-text text-muted">Public-facing name. Cannot match username.</small>
+                        <label class="invalid-feedback" *ngIf="!!rf.displayName.errors?.required">
+                            Display Name is required.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!registerForm.errors?.matchUsername">
+                            Display Name cannot match Username.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.displayName.errors?.pattern">
+                            Letters, numbers, spaces and underscores only.<br>Cannot end with space and underscore.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.displayName.errors?.minlength || !!rf.displayName.errors?.maxlength">
+                            Must be 3 to 26 characters long.
+                        </label>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <input class="form-control mt-4" (keydown)="clearErrors('email')"
+                               [ngClass]="{'is-invalid': (rf.email.errors || errors?.duplicateEmail) && (rf.email.dirty || rf.email.touched)}"
+                               formControlName="email" type="email" placeholder="Email" />
+                        <small class="form-text text-muted">Email validation will be required.</small>
+                        <label class="invalid-feedback" *ngIf="!!rf.email.errors?.required">
+                            Email is required.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.email.errors?.pattern">
+                            Enter a valid email address.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.email.errors?.maxlength">
+                            Max length is 40 characters.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="errors?.duplicateEmail">
+                            {{ errors?.duplicateEmail }}
+                        </label>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <input class="form-control mt-4" [ngClass]="{'is-invalid': rf.password.errors && (rf.password.dirty || rf.password.touched)}"
+                               formControlName="password" type="password" placeholder="Password" />
+                        <label class="invalid-feedback" *ngIf="!!rf.password.errors?.required">
+                            Password is required.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!rf.password.errors?.minlength">
+                            Must be at least 6 characters long.
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control mt-2" [ngClass]="{'is-invalid': (rf.confirmPassword.errors || registerForm.errors?.mismatch ) 
+                                    && (rf.confirmPassword.dirty || rf.confirmPassword.touched)}" formControlName="confirmPassword" type="password"
+                               placeholder="Retype Password" />
+                        <label class="invalid-feedback" *ngIf="!!rf.confirmPassword.errors?.required">
+                            Must confirm password.
+                        </label>
+                        <label class="invalid-feedback" *ngIf="!!registerForm.errors?.mismatch">
+                            Password does not match.
+                        </label>
+                    </div>
+                    <p>
+
+                    </p>
+                    <button class="btn btn-lg btn-outline-success btn-block mt-3" type="submit"><strong>Register</strong></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <p>Forum Value {{ registerForm.value | json}}</p>
+<p>Forum Status {{ registerForm.status | json}}</p>
+<p>{{ rf.confirmPassword?.errors | json }}</p> -->

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded box-shadow">
+  <button class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="nav-container">
+    <div class="collapse navbar-collapse brand">TheoryForums .NET</div>
+
+    <div class="collapse navbar-collapse justify-content-md-center">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/forum']" routerLinkActive="active"> Forum </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> Blog </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"> Quiz </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-md-end">
+      <div *ngIf="loggedIn" class="dropdown" dropdown>
+        <a class="dropdown-toggle user-options" dropdownToggle>
+          <img class="avatar mr-2" src="{{ user.avatarUrl }}" alt="{{ user.displayName }}">
+          Howdy, {{ user.displayName }}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right mt-3" *dropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)='logout()'><i class="fa fa-sign-out"></i> Log Out</a>
+        </div>
+      </div>
+
+      <div *ngIf="!loggedIn">
+        <button type="button" class="btn btn-outline-info mr-2" [routerLink]="['/register']">Register</button>
+        <button type="button" class="btn btn-outline-info" (click)="openLoginModal()">Login</button>
+      </div>
+    </div>
+  </div>
+</nav>

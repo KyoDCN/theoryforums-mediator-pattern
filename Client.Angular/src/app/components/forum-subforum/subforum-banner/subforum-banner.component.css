@@ -1,0 +1,13 @@
+.subforum-title {
+    font-size: 1.5em;
+    padding: 20px;
+    /* background: rgb(85,106,116); */
+    background: #E34234;
+    color: white;
+    margin: 0 -15px;
+    margin-top: -15px;
+  }
+
+  a {
+      color: white;
+  }

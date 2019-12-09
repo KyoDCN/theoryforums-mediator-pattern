@@ -1,0 +1,63 @@
+.thread-container {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  background: white;
+}
+
+.thread-container > div {
+  padding: 15px;
+}
+
+.author-date-container {
+  font-size: 0.7em;
+}
+
+.thread-title-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.thread-title {
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.view-reply-container {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.view-reply-container > div {
+  display: flex;
+  align-items: center;
+}
+
+.threadlist-container {
+  display: grid;
+  row-gap: 5px;
+}
+
+.btn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.buttons {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  transform: scale(2);
+  z-index: 1;
+}
+
+a {
+  color: rgb(69,90,100);
+}

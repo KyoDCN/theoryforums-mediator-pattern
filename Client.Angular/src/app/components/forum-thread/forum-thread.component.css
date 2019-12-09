@@ -1,0 +1,92 @@
+.thread {
+  background: green;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  margin: 15px 0;
+}
+
+.user-profile,
+.thread-body {
+  padding: 12px;
+}
+
+.user-profile {
+  background: white;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-right: 0;
+}
+
+.thread-body {
+  background: white;
+}
+
+.thread-detail {
+  padding-bottom: 5px;
+  font-size: 0.7em;
+  display: grid;
+  grid-template-columns: max-content max-content auto;
+  align-items: baseline;
+}
+
+.user-profile-picture-container {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-name {
+  padding: 3px 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.thread-title {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.thread-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-container {
+  display: grid;
+  grid-row-gap: 5px;
+  margin-top: 12px;
+}
+
+.editor >>> .ql-container,
+.editor >>> .ql-editor {
+  min-height: 125px !important;
+}
+
+.thread-content >>> .ql-editor {
+  padding: 0 !important;
+}
+
+.thread-content >>> * {
+  cursor: auto !important;
+}
+
+.thread-content {
+  height: inherit;
+  font-size: inherit;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  font-size: x-large;
+}

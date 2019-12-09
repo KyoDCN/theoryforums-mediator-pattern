@@ -1,0 +1,10 @@
+<div class="forum-page">
+  <div class="forum-page-container" [ngClass]="{'register': registerBackground}">
+    <div *ngIf="show">
+      <app-subforum-banner></app-subforum-banner>
+    </div>
+    <div [ngClass]="{container: !registerBackground}" [ngClass]="{containerFluid: registerBackground}">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

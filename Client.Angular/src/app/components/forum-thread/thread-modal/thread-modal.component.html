@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">
+    Add New Post
+  </h4>
+  <button type="button" class="close pull-right" (click)="bsModalRef.hide()">
+    <span>&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #newForumForm="ngForm">
+    <textarea
+      name="content"
+      class="form-control mt-2"
+      [(ngModel)]="content"
+      placeholder="Content"
+    ></textarea>
+    <div class="d-flex justify-content-end mt-2">
+      <button class="btn btn-success mr-2" (click)="addPost()">Add</button>
+      <button class="btn btn-danger" (click)="bsModalRef.hide()">Cancel</button>
+    </div>
+  </form>
+</div>
+<!-- <div class="modal-footer"></div> -->

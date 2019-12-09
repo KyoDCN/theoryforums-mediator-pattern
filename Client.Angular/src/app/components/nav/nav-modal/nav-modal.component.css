@@ -1,0 +1,6 @@
+.checkbox-persist {
+    display: flex;
+    align-items: center;
+    font-size: 0.7em;
+    margin: 5px;
+}

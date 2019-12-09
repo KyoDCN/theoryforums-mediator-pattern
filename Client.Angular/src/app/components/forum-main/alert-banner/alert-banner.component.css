@@ -1,0 +1,5 @@
+.alert {
+    border-radius: 0;
+    border-left: 6px solid crimson;
+    padding: 20px;
+}

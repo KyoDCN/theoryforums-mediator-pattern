@@ -1,0 +1,68 @@
+.post {
+  background: green;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+}
+
+.user-profile,
+.post-body {
+  padding: 12px;
+}
+
+.user-profile {
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-right: 0;
+}
+
+.post-body {
+  background: rgb(255, 255, 255);
+}
+
+.post-detail {
+  padding-bottom: 5px;
+  font-size: 0.7em;
+  display: grid;
+  grid-template-columns: max-content max-content auto;
+  align-items: baseline;
+}
+
+.user-profile-picture-container {
+  height: 75px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-name {
+  padding: 3px 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.ql-container >>> * {
+  padding: 0 !important;
+  cursor: auto !important;
+}
+
+.ql-container {
+  height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  font-size: x-large;
+}

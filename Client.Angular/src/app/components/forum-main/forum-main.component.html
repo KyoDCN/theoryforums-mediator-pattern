@@ -1,0 +1,47 @@
+<div class="buttons">
+  <input class="btn btn-info box-shadow" type="button" (click)="openAddForumModal()" value="&#43;">
+</div>
+<app-alert-banner></app-alert-banner>
+<div class="forum-container">
+  <div *ngFor="let forum of forums">
+    <div class="forum-title box-shadow">
+      <div class="mr-auto">{{ forum.title }}</div>
+      <button class="close mr-2" (click)="openAddSubforumModal(forum.id)">
+        &#43;
+      </button>
+      <button class="close mr-2" (click)="updateForum(forum.id)">↥</button>
+      <button class="close" (click)="deleteForum(forum.id)">&times;</button>
+    </div>
+    <div class="subforum-container box-shadow" *ngFor="let subforum of forum.subforums">
+      <div class="subforum-list-icon-container">
+        <div class="subforum-list-icon">
+          <i class="fa fa-{{ subforum.icon }}"></i>
+        </div>
+      </div>
+      <div class="subforum-list-title">
+        <a [routerLink]="['/subforum/' + subforum.id + '/' + subforum.slug]">{{
+          subforum.title
+        }}</a>
+      </div>
+      <div class="subforum-list-latest">
+        <div class="reply-container" *ngIf="subforum.latestReply.threadTitle !== ''">
+          <div>
+            <img class="avatar" src="{{ subforum.latestReply?.author.avatarUrl }}" />
+          </div>
+          <div class="ml-3">
+            <div>
+              <a [routerLink]="['/thread/',subforum.latestReply.threadId,subforum.latestReply.threadSlug]">{{ subforum.latestReply?.threadTitle }}</a>
+            </div>
+            <div class="author-date-container">
+              <div *ngIf="subforum.latestReply?.threadTitle != null">
+                <a *ngIf="subforum.latestReply?.author != null" [routerLink]="['/user', subforum.latestReply.author.id]">
+                  {{ subforum.latestReply?.author.displayName }}</a>,
+                {{ subforum.latestReply?.postReplyDate | date }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

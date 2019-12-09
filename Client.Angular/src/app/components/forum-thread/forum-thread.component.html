@@ -1,0 +1,50 @@
+<!-- <app-subforum-banner [subforum]="thread.subforum"></app-subforum-banner> -->
+<div class="thread-title">
+  {{ thread.title }}
+</div>
+<div class="thread box-shadow">
+  <div class="user-profile">
+    <div class="user-profile-picture-container">
+      <img class="user-profile-picture" src="{{ thread.author.avatarUrl }}" />
+    </div>
+  </div>
+  <div class="thread-body">
+    <div class="thread-detail">
+      <span class="user-name">
+        <a [routerLink]="['/user', thread.author.id]">{{ thread.author.displayName }}</a>
+      </span>
+      <span class="thread-date ml-1">
+        {{ thread.createdOn | date }}
+        <span *ngIf="thread.edited">
+          - Last Edited: {{ thread.lastEditDate | date }}
+        </span>
+      </span>
+      <span class="menu">
+        <div class="dropdown" dropdown>
+          <a class="user-options" dropdownToggle>
+            <i class="material-icons">more_vert</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+            <a class="dropdown-item">Edit</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Delete</a>
+          </div>
+        </div>
+      </span>
+    </div>
+    <!-- Thread Content Viewer -->
+    <div id="thread-content" class="thread-content"></div>
+  </div>
+</div>
+<div class="thread-buttons-container">
+  <button (click)="openEditor()">Reply</button>
+  <button>Like</button>
+</div>
+
+<div *ngIf="editorOpen">
+  <app-rich-text-editor class="editor" (emitContent)="submitPost($event)"></app-rich-text-editor>
+</div>
+
+<div class="post-container" *ngIf="posts.length > 0">
+  <app-forum-post *ngFor="let post of posts" [post]="post"></app-forum-post>
+</div>

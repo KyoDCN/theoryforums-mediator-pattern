@@ -1,0 +1,29 @@
+<div>
+  <!-- <app-subforum-banner [subforum]="subforum"></app-subforum-banner> -->
+  <div class="buttons">
+    <input class="btn btn-info box-shadow" type="button" (click)="openAddNewThreadModal()" value="+">
+  </div>
+  <div class="threadlist-container">
+    <div class="thread-container box-shadow" *ngFor="let thread of threads">
+      <div class="thread-title-container">
+        <div>
+          <a class="thread-title" [routerLink]="['/thread', thread.id, thread.slug]">{{
+            thread.title
+          }}</a>
+        </div>
+        <div class="author-date-container">
+          <a *ngIf="thread.author != null" [routerLink]="['/user', thread.author.id]">
+            {{ thread.author.displayName }}</a>, {{ thread.createdOn | date }}
+        </div>
+      </div>
+      <div class="view-reply-container">
+        <div title="Views">
+          {{ thread.views }} <i class="fa fa-eye ml-2"></i>
+        </div>
+        <div title="Replies">
+          {{ thread.replies }} <i class="fa fa-commenting-o ml-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

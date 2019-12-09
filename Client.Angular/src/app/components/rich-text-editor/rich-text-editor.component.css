@@ -1,0 +1,28 @@
+.editor-container {
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    background: #fffafa;
+}
+
+.toolbar {
+    height: 40px;
+    padding: 5px;
+    background: darkgray;
+    display: flex;
+    align-items: center;
+}
+
+.textarea-container {
+    width: 100%;
+}
+
+.textarea {
+    width: inherit;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}

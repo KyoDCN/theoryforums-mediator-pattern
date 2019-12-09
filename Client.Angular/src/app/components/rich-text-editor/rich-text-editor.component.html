@@ -1,0 +1,62 @@
+<div class="editor-container box-shadow">
+    <div id="toolbar" class="toolbar">
+        <span class="ql-formats">
+            <button class="ql-bold">Bold</button>
+            <button class="ql-italic">Italic</button>
+            <button class="ql-underline">Underline</button>
+            <button class="ql-strike">Strike</button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-align" value=""></button>
+            <button class="ql-align" value="center"></button>
+            <button class="ql-align" value="right"></button>
+            <button class="ql-align" value="justify"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-indent" value="-1"></button>
+            <button class="ql-indent" value="+1"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-script" value="sub"></button>
+            <button class="ql-script" value="super"></button>
+        </span>
+    </div>
+    <div id="editor"></div>
+    <!-- <quill-editor [(ngModel)]="text" format="object" theme="snow">
+        <div quill-editor-toolbar>
+            <span class="ql-formats">
+                <button class="ql-bold">Bold</button>
+                <button class="ql-italic">Italic</button>
+                <button class="ql-underline">Underline</button>
+                <button class="ql-strike">Strike</button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-align" value=""></button>
+                <button class="ql-align" value="center"></button>
+                <button class="ql-align" value="right"></button>
+                <button class="ql-align" value="justify"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-indent" value="-1"></button>
+                <button class="ql-indent" value="+1"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-script" value="sub"></button>
+                <button class="ql-script" value="super"></button>
+            </span>
+        </div>
+    </quill-editor> -->
+    <!-- <div id="post-view" class="post-content"></div> -->
+    <!-- <quill-view [content]="text" format="[object, text]"></quill-view> -->
+</div>
+<div class="button-container">
+    <button class="btn btn-success btn-lg" (click)="emitContentButton()">Post</button>
+</div>

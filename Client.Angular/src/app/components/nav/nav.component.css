@@ -1,0 +1,28 @@
+.nav-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+}
+
+.nav-item {
+  margin: 0px 5px;
+}
+
+.user-options {
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+}
+
+.brand {
+  cursor: default;
+}
