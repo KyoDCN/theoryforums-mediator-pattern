@@ -25,18 +25,29 @@ namespace Application.ForumApp
 
             public async Task<GetDTO> Handle(Query request, CancellationToken cancellationToken)
             {
-                var query = from forum in _context.Forums
-                            where forum.Id == request.Id
-                            select new GetDTO
-                            {
-                                Id = forum.Id,
-                                Title = forum.Title,
-                                Slug = forum.Slug,
-                                Description = forum.Description,
-                                Icon = forum.Icon
-                            };
+                return await _context.Forums
+                    .Where(x => x.Id == request.Id)
+                    .Select(x => new GetDTO
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        Slug = x.Slug,
+                        Description = x.Description,
+                        Icon = x.Icon
+                    }).SingleOrDefaultAsync();
 
-                return await query.SingleOrDefaultAsync();
+                //var query = from forum in _context.Forums
+                //            where forum.Id == request.Id
+                //            select new GetDTO
+                //            {
+                //                Id = forum.Id,
+                //                Title = forum.Title,
+                //                Slug = forum.Slug,
+                //                Description = forum.Description,
+                //                Icon = forum.Icon
+                //            };
+
+                //return await query.SingleOrDefaultAsync();
             }
         }
 
